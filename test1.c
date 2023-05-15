@@ -5,7 +5,11 @@ int
 main ()
 {
 	void *p1, *p2, *p3, *p4 ;
-
+	int a;
+	printf("Select the mode: 0 -> Bestfit , 1 or else -> Firstfit: ");
+	scanf("%d",&a);
+	if(a != 0) a = 1;
+	bmconfig(a);
 	bmprint() ;
 
 	p1 = bmalloc(2000) ; 
@@ -26,5 +30,9 @@ main ()
 
 	p4 = bmalloc(1000) ; 
 	printf("bmalloc(1000):%p\n", p4) ; 
+	bmprint() ;
+
+	brealloc(p4,50);
+	printf("brealloc(50):%p\n", p4) ; 
 	bmprint() ;
 }
